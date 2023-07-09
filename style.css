@@ -12,6 +12,22 @@ body {
     height: 100vh;
 }
 
+.add-btn {
+    height: 2em;
+    margin-left: auto;
+    margin-right: 5%;
+    transition: .3s;
+}
+
+.add-btn:hover {
+    scale: 1.2;
+}
+
+.book-form {
+    display: flex;
+    flex-direction: column;
+}
+
 .card {
     align-items: center;
     background-color: #fefae0;
@@ -25,6 +41,18 @@ body {
 
 .card p {
     font-size: 1.1rem;
+}
+
+.close {
+    height: 1.1em;
+    position: absolute;
+    right: 4%;
+    top: 4%;
+    transition: .1s;
+}
+
+.close:hover {
+    scale: 1.2;
 }
 
 .footer {
@@ -53,4 +81,46 @@ body {
 .nav-icon {
     height: 2em;
     margin-left: 8px;
+}
+
+.popup-form {
+    background-color: #fefae0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .4);
+    display: none;
+    height: fit-content;
+    left: 50%;
+    padding: 32px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.popup-form button {
+    background-color: #d4a373;
+    border: none;
+    border-radius: 12px;
+    padding: 8px;
+    transition: .2s;
+}
+
+.popup-form button:hover {
+    scale: 1.1;
+}
+
+.popup-form form div {
+    margin-bottom: 16px;
+}
+
+.popup-form input {
+    border: solid .5px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    display: block;
+    padding: 2px 15px;
+    width: 100%;
+}
+
+.popup-form select {
+    width: 100%;
 }

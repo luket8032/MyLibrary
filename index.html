@@ -11,9 +11,37 @@
     <div class="nav">
         <h1>MyLibrary</h1>
         <img src="icons/book-svgrepo-com.svg" alt="book-icon" class="nav-icon">
+        <img src="icons/add-ellipse-svgrepo-com.svg" alt="add-icon" class="add-btn" id="addBtn">
     </div>
     <div class="main">
-
+        <div class="popup-form" id="popup">
+            <h3>Add a Book:</h3>
+            <hr>
+            <form action="" class="book-form">
+                <div>
+                    <label for="title">Book Title:</label>
+                    <input type="text" name="title">
+                </div>
+                <div>
+                    <label for="author">Author:</label>
+                    <input type="text" name="author">
+                </div>
+                <div>
+                    <label for="pages"># of Pages:</label>
+                    <input type="text" name="pages">
+                </div>
+                <div>
+                    <label for="read">Status:</label>
+                    <select name="read" id="">
+                        <option value="" selected>--Have you read the book yet?--</option>
+                        <option value="Already read">Have read</option>
+                        <option value="not read yet">Not read</option>
+                    </select>
+                </div>
+                <button type="submit">Add Book</button>
+            </form>
+            <img src="icons/close-svgrepo-com.svg" alt="close" class="close" id="closeBtn">
+        </div>
     </div>
     <div class="footer">
         <p>Made by Luke Tran</p>
