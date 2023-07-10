@@ -43,14 +43,26 @@ body {
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, .4);
     display: flex;
-    height: fit-content;
     justify-content: center;
-    padding: 32px 0px;
-    width: 300px;
+    overflow: auto;
 }
 
 .card p {
     font-size: 1.1rem;
+}
+
+.card button {
+    background-color: #d4a373;
+    border: none;
+    border-radius: 12px;
+    margin: 15px;
+    margin-bottom: 0px;
+    padding: 8px 24px;
+    transition: .2s;
+}
+
+.card button:hover {
+    scale: 1.1;
 }
 
 .close {
@@ -76,9 +88,12 @@ body {
     background-color: #E9EDC9;
     display: grid;
     gap: 50px;
-    grid-template-columns: repeat(5, 300px);
-    overflow-y: auto;
+    grid-auto-rows: 250px;
+    grid-template-columns: repeat(4, 400px);
+    justify-content: center;
+    overflow: auto;
     padding: 50px;
+    row-gap: 50px;
 }
 
 .nav {
