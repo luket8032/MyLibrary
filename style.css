@@ -154,3 +154,13 @@ body {
 .popup-form select {
     width: 100%;
 }
+
+.read {
+    color: green;
+    text-transform: uppercase;
+}
+
+.not-read {
+    color: red;
+    text-transform: uppercase;
+}

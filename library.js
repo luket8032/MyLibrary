@@ -25,22 +25,24 @@ function addCard(book) {
     const status = document.createElement('p')
     const statusBtn = document.createElement('button')
     const removeBtn = document.createElement('button')
+
     title.textContent = book.title
     author.textContent = `Author: ${book.author}`
     pages.textContent = `Pages: ${book.pages}`
-    status.textContent = `Status: ${book.read}`
     statusBtn.textContent = 'Change Status'
     removeBtn.textContent = 'Remove Book'
+    if (book.read === 'not-read') {
+        status.textContent = 'Status: not read'
+    } else {
+        status.textContent = `Status: ${book.read}`
+    }
+
     newCard.classList.add('card')
+    status.classList.add(book.read)
+    status.setAttribute('data-status', book.read)
     statusBtn.setAttribute('id', 'statusBtn')
     removeBtn.setAttribute('id', 'removeBtn')
-    cardInfo.append(title)
-    cardInfo.append(divider)
-    cardInfo.append(author)
-    cardInfo.append(pages)
-    cardInfo.append(status)
-    cardInfo.append(statusBtn)
-    cardInfo.append(removeBtn)
+    cardInfo.append(title, divider, author, pages, status, statusBtn, removeBtn)
     newCard.append(cardInfo)
     main.append(newCard)
 }
@@ -76,12 +78,25 @@ popupForm.addEventListener('submit', addBook)
 
 document.addEventListener("click", function(e){
     const targetRemove = e.target.closest("#removeBtn");
-    const targetChange = e.target.closest("#statusBtn"); // Or any other selector.
+    const targetChange = e.target.closest("#statusBtn");
   
     if(targetRemove){
-      targetRemove.parentElement.parentElement.remove()
+        targetRemove.parentElement.parentElement.remove()
     } else if (targetChange) {
-
+        const statusElement = targetChange.previousElementSibling
+        const currentStatus = statusElement.dataset.status
+        switch(currentStatus) {
+            case 'read':
+                statusElement.textContent = 'Status: not read'
+                statusElement.dataset.status = 'not-read'
+                statusElement.className = 'not-read'
+                break
+            case 'not-read':
+                statusElement.textContent = 'Status: read'
+                statusElement.dataset.status = 'read'
+                statusElement.className = 'read'
+                break
+        }
     }
   });
 
@@ -94,34 +109,6 @@ const test = new Books('test', 'test', 69, 'read')
 myLibrary.push(hobbit)
 myLibrary.push(hobbit2)
 
-
-
-for (let book in myLibrary) {
-    const newCard = document.createElement('div')
-    const cardInfo = document.createElement('div')
-    const title = document.createElement('h3')
-    const divider = document.createElement('hr')
-    const author = document.createElement('p')
-    const pages = document.createElement('p')
-    const status = document.createElement('p')
-    const statusBtn = document.createElement('button')
-    const removeBtn = document.createElement('button')
-    title.textContent = myLibrary[book].title
-    author.textContent = `Author: ${myLibrary[book].author}`
-    pages.textContent = `Pages: ${myLibrary[book].pages}`
-    status.textContent = `Status: ${myLibrary[book].read}`
-    statusBtn.textContent = 'Change Status'
-    removeBtn.textContent = 'Remove Book'
-    newCard.classList.add('card')
-    statusBtn.setAttribute('id', 'statusBtn')
-    removeBtn.setAttribute('id', 'removeBtn')
-    cardInfo.append(title)
-    cardInfo.append(divider)
-    cardInfo.append(author)
-    cardInfo.append(pages)
-    cardInfo.append(status)
-    cardInfo.append(statusBtn)
-    cardInfo.append(removeBtn)
-    newCard.append(cardInfo)
-    main.append(newCard)
-}
+myLibrary.forEach(book => {
+    addCard(book);
+}) 

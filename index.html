@@ -26,22 +26,22 @@
         <form action="" class="book-form" id="book-form">
             <div>
                 <label for="title">Book Title:</label>
-                <input type="text" name="title" placeholder="Enter a book title...">
+                <input type="text" name="title" placeholder="Enter a book title..." required>
             </div>
             <div>
                 <label for="author">Author:</label>
-                <input type="text" name="author" placeholder="Enter the author's name...">
+                <input type="text" name="author" placeholder="Enter the author's name..." required>
             </div>
             <div>
                 <label for="pages"># of Pages:</label>
-                <input type="text" name="pages" placeholder="How many pages?">
+                <input type="number" name="pages" placeholder="How many pages?" required>
             </div>
             <div>
                 <label for="read">Status:</label>
-                <select name="read" id="">
-                    <option value="" selected>--Have you read the book yet?--</option>
-                    <option value="Already read">Have read</option>
-                    <option value="not read yet">Not read</option>
+                <select name="read" required>
+                    <option value="" selected disabled>--Have you read the book yet?--</option>
+                    <option value="read">Have read</option>
+                    <option value="not-read">Not read</option>
                 </select>
             </div>
             <button type="submit">Add Book</button>
